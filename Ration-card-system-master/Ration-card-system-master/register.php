@@ -35,7 +35,7 @@
       <div class="card-body ">
         <!-- Nested Row within Card Body -->
         
-          <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
           <div class=<div class="row col-lg-7"> 
             <div class="p-5">
               <div class="text-center">
@@ -53,9 +53,9 @@
                 <div class="form-group">
                   <input type="number" name="mobile_number" class="form-control form-control-user" id="exampleInputMobile" placeholder="Mobile Number">
                 </div>
-                <!-- <div class="form-group">
+                <div class="form-group">
                   <input type="text" name="Ration_number" class="form-control form-control-user" id="exampleInputLocation" placeholder="Ration Card Number">
-                </div> -->
+                </div>
                 <div class="form-group">
                   <input type="text" name="Aadhar_number" class="form-control form-control-user" id="exampleInputLocation" placeholder="Aadhar Card Number">
                 </div>
@@ -92,65 +92,65 @@
                   $repeat_Password=$_POST['repeat_password'];
                   $mobile=$_POST['mobile_number'];
                   $aadhar=$_POST['Aadhar_number'];
+                  $ration_num=$_POST['Ration_number'];
+             
 
-                  if($user_Email == "" || $user_Name = "" || $user_Password = "" || $repeat_Password="" || $mobile="" || $aadhar="")
+
+                  if($user_Email == "" || $user_Name == "" || $user_Password == "" || $repeat_Password=="" || $mobile=="" || $aadhar==""|| $ration_num=="")
                   {
 
-                    echo "<script>alert('You can not enter blank dat') </script>";
+                    echo "<script>alert('You can not enter blank data') </script>";
                   
                   }
                   else
                   {
-                    $query_register="SELECT * from customer_registeration where c_name='$user_Name' || c_password='$user_Password' || c_email='$user_Email' || c_mobile_no='$mobile' || aadhar_number='$aadhar' ";
-                  $run1=mysqli_query($connection,$query_register);
-                  }
-                  if(!$run1 || mysqli_num_rows($run1) > 0)
-                  {
-           
+                    $query_register="SELECT * from customer_registeration where   c_email='$user_Email'  ";
+                   $run1=mysqli_query($connection,$query_register);
+                 
+                  if(!(mysqli_num_rows($run1) > 0))
+                
+                  { 
                     
-                    echo "<script>alert('User Not Found')</script>";
-                    
-                  
-                  }
-                  else
-                  {
-                    
-                    $add_query="INSERT INTO customer_registeration(c_name,c_email,c_password,c_mobile_no,aadhar_number) VALUES('$user_Name','$user_Email','$user_Password','$mobile','$aadhar')";
+                    $add_query="INSERT INTO customer_registeration(c_name,c_email,c_password,c_mobile_no,ration_number,aadhar_number) VALUES('$user_Name','$user_Email','$user_Password','$mobile','$ration_num','$aadhar')";
                     
                       $result_add1=mysqli_query($connection,$add_query);
                       if($result_add1)
-                      {
+                     {
                        
                       
                          echo"<script>alert('data inserted successfully')</script>";
-                        // echo "post added successfully";
+                        echo "post added successfully";
                       
                       }
                       else
                       {
-                          die("query wrong!!");
+                         echo "query wrong!!";
                       }
+                  // }
+                  // else{
+                  //   echo"<script>alert('data already exist')</script>";
+
+                  // }
+                  
+
                   }
+                 
                   
 
+                 
+                }
+               
+                  
               }
-                 
-                  
-
-                 
-               
-               
-                  
-              
 
 
               
             ?>
                 
               <hr>
-              <!-- <div class="text-center">
+              <div class="text-center">
                 <a class="small" href="forgot-password.html">Forgot Password?</a>
-              </div> -->
+              </div>
               <div class="text-center large">
               Already have an account?
                 <a  href="user_login.php"> Login!</a>

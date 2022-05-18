@@ -116,8 +116,8 @@
                         
                         if($insert_result)
                        {
-                         // echo"<script>alert('data inserted successfully')</script>";
-                          // echo "data added";
+                         echo"<script>alert('data inserted successfully')</script>";
+                         echo "data added";
                           
                         
                         }

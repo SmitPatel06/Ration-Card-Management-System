@@ -85,13 +85,12 @@ if($result)
         if($result_product)
         {
             $i=1;
-            
             while($row=mysqli_fetch_assoc($result_product))
             {
                 $product_name = $row['product_name'];
                 $product_img = $row['product_img'];
                 $product_mrp = $row['product_mrp'];
-                
+
                 
                // $name=$row['s_name'];
         
@@ -127,13 +126,13 @@ if($result)
       
                            <!-- Edit Modal -->
    
-    </tr>
-    <?php
-        $i++;
-            }
-                          
+                                    </tr>
+                                    <?php
+                                    $i++;
+                        }
 }
-    ?>
+
+            ?>
             
 
                       </tbody>

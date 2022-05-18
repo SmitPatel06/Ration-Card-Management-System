@@ -228,20 +228,18 @@ if(isset($_POST['assign_to_shop']))
                         echo "<script>
                         alert('Product asssign Successfully');
                         </script>";
-                        echo "available quantity = ";
+                        echo "available quantity";
 
 
                          echo $available_quantity;
                       echo "<br>";
-                      echo "assigned quantity = ";
+                      echo "assigned quantity";
                          echo $qty;
                          echo "<br>";
-                         echo "remaining quantity = ";
+                         echo "remaining quantity";
                          $remaining_quantity= ($available_quantity - $qty); 
                         echo $remaining_quantity;
-                        // $row['product_quantity'] = $remaining_quantity;
-                        // UPDATE `rationcard` SET `avialable_quantity_admin` = product_quantity';
-                       }
+                        }
                         else
                         {
                             echo "error".mysqli_error($connection);
